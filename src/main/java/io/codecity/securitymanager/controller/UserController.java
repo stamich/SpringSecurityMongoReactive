@@ -1,7 +1,7 @@
 package io.codecity.securitymanager.controller;
 
-import io.codecity.securitymanager.model.User;
-import io.codecity.securitymanager.service.UserService;
+import io.codecity.securitymanager.model.Users;
+import io.codecity.securitymanager.service.UsersService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,15 +13,15 @@ import reactor.core.publisher.Flux;
 @RequestMapping("/user")
 public class UserController {
 
-    private final UserService userService;
+    private final UsersService usersService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public UserController(UsersService usersService) {
+        this.usersService = usersService;
     }
 
     @GetMapping("/all")
     @ResponseStatus(code = HttpStatus.OK)
-    public Flux<User> getAllUsers() {
-        return userService.findAll();
+    public Flux<Users> getAllUsers() {
+        return usersService.findAll();
     }
 }

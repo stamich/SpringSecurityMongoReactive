@@ -11,7 +11,7 @@ import java.util.TreeSet;
 
 @Data
 @Document(collection = "users")
-public class User {
+public class Users {
 
     public enum Type {
         INDIVIDUAL,
